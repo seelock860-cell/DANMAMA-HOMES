@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --color-navy-950: #060e1b;
+  --color-navy-900: #0b172a;
+  --color-navy-800: #132542;
+  --color-navy-700: #1d3559;
+  --color-gold-300: #e5ca8b;
+  --color-gold-400: #d4b062;
+  --color-gold-500: #b89242;
+  --color-gold-600: #937029;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+@keyframes whatsappPump {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 10px 28px -6px rgba(22, 163, 74, 0.45);
+  }
+  50% {
+    transform: scale(1.055);
+    box-shadow: 0 16px 36px -4px rgba(22, 163, 74, 0.6);
+  }
+}
+
+@keyframes whatsappRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  75%, 100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
+.whatsapp-pump {
+  animation: whatsappPump 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+.whatsapp-ring {
+  animation: whatsappRing 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-pump,
+  .whatsapp-ring {
+    animation: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
